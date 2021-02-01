@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Profile from './Profile';
+import WithRouterSample from './WithRouterSample';
 
 const H3 = styled.h3`
     text-align: center;
@@ -15,7 +16,7 @@ const Li = styled.li`
     padding: 1%;
 `;
 
-const LINK = styled(Link)`
+const LINK = styled(NavLink)`
     color: #7b7b7b;
     text-decoration: none;
     :hover {
@@ -30,6 +31,11 @@ const P = styled.p`
     font-weight: 700;
 `;
 
+const activeStyle = {
+    background: '#4fb948',
+    color: '#fff',
+};
+
 const Profiles = () => {
     return (
         <div>
@@ -41,13 +47,14 @@ const Profiles = () => {
             />
             <ul style={{padding: 0, margin: 0}}>
                 <Li>
-                    <LINK to="/profiles/GgongSamNal">GgongSamNal</LINK>
+                    <LINK activeStyle={activeStyle} to="/profiles/GgongSamNal">GgongSamNal</LINK>
                 </Li>
                 <Li>
-                    <LINK to="/profiles/Rachel">Rachel</LINK>
+                    <LINK activeStyle={activeStyle} to="/profiles/Rachel">Rachel</LINK>
                 </Li>
             </ul>
             <Route path="/profiles/:username" component={Profile} />
+            {/* <WithRouterSample /> */}
         </div>
     );
 }

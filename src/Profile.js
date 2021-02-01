@@ -1,5 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import WithRouterSample from './WithRouterSample';
 
 const H3 = styled.h3`
     text-align: center;
@@ -34,8 +36,9 @@ const Profile = ({ match }) => {
                 {username}({profile.name})
             </H3>
             <P>{profile.description}</P>
+            <WithRouterSample />
         </div>
     );
 }
 
-export default Profile;
+export default withRouter(Profile);
